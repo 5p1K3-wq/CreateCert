@@ -10,9 +10,10 @@ You can read more about this template at the links below:
 https://github.com/HeaTTheatR/LoginAppMVC
 https://en.wikipedia.org/wiki/Model–view–controller
 """
-
+import os
 from typing import NoReturn
 
+from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager
 
 from kivymd.app import MDApp
@@ -23,14 +24,26 @@ from View.screens import screens
 class CreateCert(MDApp):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        self.load_all_kv_files(self.directory)
-        # This is the screen manager that will contain all the screens of your
-        # application.
+        self.path_to_view = self.directory + '/View'
+        self.load_all_kv_files()
         self.manager_screens = ScreenManager()
-        
+
     def build(self) -> ScreenManager:
         self.generate_application_screens()
         return self.manager_screens
+
+    def load_all_kv_files(self) -> NoReturn:
+        for d, dirs, files in os.walk(self.path_to_view):
+            for f in files:
+                if (
+                        os.path.splitext(f)[1] == ".kv"
+                        and f != "style.kv"
+                        and "Updates" not in d
+                        and "__MACOS" not in d
+                ):
+                    path_to_kv_file = os.path.join(d, f)
+                    with open(path_to_kv_file, encoding="utf-8") as kv_file:
+                        Builder.load_string(kv_file.read())
 
     def generate_application_screens(self) -> NoReturn:
         """
@@ -51,4 +64,5 @@ class CreateCert(MDApp):
             self.manager_screens.add_widget(view)
 
 
-CreateCert().run()
+if __name__ == "__main__":
+    CreateCert().run()
