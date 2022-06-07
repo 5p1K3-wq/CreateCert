@@ -1,5 +1,5 @@
 from View.base_screen import BaseScreenView
-from View.HomeScreen.components.Tab.tab_home_screen import TabHomeScreen
+from View.HomeScreen.components.ContentNavigationDrawer.content_navigation_drawer import ContentNavigationDrawer
 
 class HomeScreenView(BaseScreenView):
     def __init__(self, **kwargs):

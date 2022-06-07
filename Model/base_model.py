@@ -21,7 +21,6 @@ class BaseScreenModel:
     def notify_observers(self, name_screen: str) -> None:
         """
         Method that will be called by the observer when the model data changes.
-
         :param name_screen:
             name of the view for which the method should be called
             :meth:`model_is_changed`.

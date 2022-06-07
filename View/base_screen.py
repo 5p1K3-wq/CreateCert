@@ -17,7 +17,6 @@ class BaseScreenView(ThemableBehavior, MDScreen, Observer):
     controller = ObjectProperty()
     """
     Controller object - :class:`~Controller.%s.%s`.
-
     :attr:`controller` is an :class:`~kivy.properties.ObjectProperty`
     and defaults to `None`.
     """
@@ -25,7 +24,6 @@ class BaseScreenView(ThemableBehavior, MDScreen, Observer):
     model = ObjectProperty()
     """
     Model object - :class:`~Model.%s.%s`.
-
     :attr:`model` is an :class:`~kivy.properties.ObjectProperty`
     and defaults to `None`.
     """
@@ -33,7 +31,6 @@ class BaseScreenView(ThemableBehavior, MDScreen, Observer):
     manager_screens = ObjectProperty()
     """
     Screen manager object - :class:`~kivy.uix.screenmanager.ScreenManager`.
-
     :attr:`manager_screens` is an :class:`~kivy.properties.ObjectProperty`
     and defaults to `None`.
     """

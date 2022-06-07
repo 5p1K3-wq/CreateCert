@@ -1,13 +1,15 @@
 <HomeScreenView>
-    MDBoxLayout:
-        orientation: "vertical"
-        MDToolbar:
-            title: "Создание сертификатов для IFT/Prelive контуров"
-        MDTabs:
-            id: tabs
-            TabHomeScreen:
-                icon: "home"
-                title: "Главная"
-            TabHomeScreen:
-                icon: "cog-outline"
-                title: "Настройки"
+    MDScreen:
+        MDNavigationLayout:
+            ScreenManager:
+                MDScreen:
+                    MDToolbar:
+                        title: app.title
+                        elevation: 10
+                        pos_hint: {"top": 1}
+                        left_action_items:
+                            [['menu', lambda x: nav_drawer.set_state("open")]]
+
+            MDNavigationDrawer:
+                id: nav_drawer
+                ContentNavigationDrawer:
